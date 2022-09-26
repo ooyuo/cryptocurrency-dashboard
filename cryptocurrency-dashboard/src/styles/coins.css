@@ -1,0 +1,70 @@
+.coin__symbol {
+  font-size: 12px;
+}
+.coin__name {
+  margin-bottom: 10px;
+}
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}
+.header-popular {
+  font-size: 48px;
+  font-size: 34px;
+  color: black;
+  margin-left: 20px;
+}
+.grid--cards {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(245, 245, 245, 0.818);
+  margin-right: 30px;
+  padding: 10px;
+  border-radius: 25px;
+}
+.cards-info {
+  margin-top: 15px;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+.cards-info__name {
+  font-size: larger;
+  margin-right: 10px;
+}
+.cards-price {
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.cards-price__change_7d {
+  font-weight: 300;
+  font-size: 17px;
+}
+.cards-info__symbol {
+  font-size: 13px;
+}
+.grid-portfolio {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  display: flex;
+  align-items: center;
+}
+.portfolio-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+}
+.portfolio-info__name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.portfolio-info__price {
+  font-weight: bold;
+}
+.portfolio-img {
+  margin-right: 30px;
+}

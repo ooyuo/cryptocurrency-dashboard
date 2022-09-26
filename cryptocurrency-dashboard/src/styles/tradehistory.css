@@ -1,0 +1,15 @@
+.smtitle-trade__history {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+.smtitle-trade__history-data {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-bottom: 15px;
+}
+.smtitle-trade__history-data:nth-child(1) > .trade--history-type {
+  color: red;
+}

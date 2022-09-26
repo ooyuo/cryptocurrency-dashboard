@@ -1,0 +1,54 @@
+.btn__buy {
+  width: 350px;
+  background-color: aquamarine;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  height: max-content;
+  padding: 20px;
+}
+
+input[type="text"] {
+  width: 350px;
+  height: 40px;
+  border-radius: 25px;
+  border: 0.5px solid lightgray;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+button {
+  border-radius: 25px;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  background: floralwhite;
+  border: none;
+  font-size: x-large;
+}
+
+::placeholder {
+  text-align: center;
+}
+
+.buy__total-price {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.buy__box {
+  width: 350px;
+  height: 40px;
+  border-radius: 25px;
+  border: 0.5px solid lightgray;
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px;
+}
+
+.buy__text {
+  margin-bottom: 15px;
+}
