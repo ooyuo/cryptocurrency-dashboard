@@ -209,8 +209,8 @@ function Coin({ symbol, name }: ICoin) {
   const { coinId } = useParams<RouteParams>();
   const { state } = useLocation<RouteState>();
 
-  const buyMatch = useRouteMatch("/:coinId/buy");
-  const sellMatch = useRouteMatch("/:coinId/sell");
+  const buyMatch = useRouteMatch("/cryptocurrency-dashboard/:coinId/buy");
+  const sellMatch = useRouteMatch("/cryptocurrency-dashboard/:coinId/sell");
 
   // const { isLoading, data } = useQuery<IHistorical[]>(
   //   ["ohlcv", props.symbol],
@@ -248,7 +248,7 @@ function Coin({ symbol, name }: ICoin) {
                   <Tab isActive={buyMatch !== null}>
                     <Link
                       to={{
-                        pathname: `/${coinId}/buy`,
+                        pathname: `/cryptocurrency-dashboard/${coinId}/buy`,
                         state: { name: state.name, symbol: state.symbol },
                       }}
                     >
@@ -258,7 +258,7 @@ function Coin({ symbol, name }: ICoin) {
                   <Tab isActive={sellMatch !== null}>
                     <Link
                       to={{
-                        pathname: `/${coinId}/sell`,
+                        pathname: `/cryptocurrency-dashboard/${coinId}/sell`,
                         state: { name: state.name, symbol: state.symbol },
                       }}
                     >
@@ -267,10 +267,10 @@ function Coin({ symbol, name }: ICoin) {
                   </Tab>
                 </Tabs>
                 <Switch>
-                  <Route path={`/:coinId/buy`}>
+                  <Route path={`/cryptocurrency-dashboard/:coinId/buy`}>
                     <Buy />
                   </Route>
-                  <Route path={`/:coinId/sell`}>
+                  <Route path={`/cryptocurrency-dashboard/:coinId/sell`}>
                     <Sell />
                   </Route>
                 </Switch>

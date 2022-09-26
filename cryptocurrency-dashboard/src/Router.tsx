@@ -6,7 +6,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/:coinId">
+        <Route path="/cryptocurrency-dashboard/:coinId">
           <Coin
             id={""}
             name={""}
@@ -17,7 +17,7 @@ function Router() {
             type={""}
           />
         </Route>
-        <Route path="/">
+        <Route path="/cryptocurrency-dashboard/">
           <Coins />
         </Route>
       </Switch>
