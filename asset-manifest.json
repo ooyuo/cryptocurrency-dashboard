@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/cryptocurrency-dashboard/static/css/main.12a9bf1d.css",
+    "main.js": "/cryptocurrency-dashboard/static/js/main.99c2270e.js",
+    "index.html": "/cryptocurrency-dashboard/index.html",
+    "main.12a9bf1d.css.map": "/cryptocurrency-dashboard/static/css/main.12a9bf1d.css.map",
+    "main.99c2270e.js.map": "/cryptocurrency-dashboard/static/js/main.99c2270e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.12a9bf1d.css",
+    "static/js/main.99c2270e.js"
+  ]
+}
