@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cryptocurrency-dashboard/btc-bitcoin/static/css/main.8ada9a98.css",
-    "main.js": "/cryptocurrency-dashboard/btc-bitcoin/static/js/main.8ad8b61c.js",
-    "static/media/bank.png": "/cryptocurrency-dashboard/btc-bitcoin/static/media/bank.6880792e45933b671fc1.png",
-    "static/media/btc-gold.png": "/cryptocurrency-dashboard/btc-bitcoin/static/media/btc-gold.caeb07182a32348e8eb5.png",
-    "index.html": "/cryptocurrency-dashboard/btc-bitcoin/index.html",
-    "main.8ada9a98.css.map": "/cryptocurrency-dashboard/btc-bitcoin/static/css/main.8ada9a98.css.map",
-    "main.8ad8b61c.js.map": "/cryptocurrency-dashboard/btc-bitcoin/static/js/main.8ad8b61c.js.map"
+    "main.css": "/cryptocurrency-dashboard/static/css/main.8ada9a98.css",
+    "main.js": "/cryptocurrency-dashboard/static/js/main.81745abd.js",
+    "static/media/bank.png": "/cryptocurrency-dashboard/static/media/bank.6880792e45933b671fc1.png",
+    "static/media/btc-gold.png": "/cryptocurrency-dashboard/static/media/btc-gold.caeb07182a32348e8eb5.png",
+    "index.html": "/cryptocurrency-dashboard/index.html",
+    "main.8ada9a98.css.map": "/cryptocurrency-dashboard/static/css/main.8ada9a98.css.map",
+    "main.81745abd.js.map": "/cryptocurrency-dashboard/static/js/main.81745abd.js.map"
   },
   "entrypoints": [
     "static/css/main.8ada9a98.css",
-    "static/js/main.8ad8b61c.js"
+    "static/js/main.81745abd.js"
   ]
 }
