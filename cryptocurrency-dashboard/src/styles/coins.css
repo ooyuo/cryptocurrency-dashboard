@@ -6,7 +6,6 @@
 }
 .grid-wrapper {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
 }
 .header-popular {
   font-size: 48px;
@@ -67,4 +66,7 @@
 }
 .portfolio-img {
   margin-right: 30px;
+}
+.coins-body {
+  width: 40%;
 }

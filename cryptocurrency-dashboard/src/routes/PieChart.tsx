@@ -28,7 +28,7 @@ function PieChart() {
 
   return (
     <div className="piechart">
-      <ApexChart type="donut" height={200} {...pieChart} />;
+      <ApexChart type="donut" height={300} {...pieChart} />
     </div>
   );
 }

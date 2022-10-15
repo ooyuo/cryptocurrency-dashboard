@@ -35,6 +35,7 @@ footer, header, hgroup, main, menu, nav, section {
 }
 body {
   line-height: 1;
+  height: 100vh;
 }
 menu, ol, ul {
   list-style: none;
@@ -63,8 +64,10 @@ body {
   line-height: 1.2;
   width: 90%; 
   margin: 0 auto;
-  height: 100vh;
   letter-spacing: 1px;
+  height: 80%;
+  margin-top: 30px;
+  
 }
 a {
   text-decoration:none;

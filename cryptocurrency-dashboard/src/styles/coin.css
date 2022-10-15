@@ -2,3 +2,42 @@
   font-size: 30px;
   margin-right: 20px;
 }
+
+.wrapper-sides {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-right: 50px;
+}
+
+.right-side {
+  margin-right: 30px;
+}
+.portfolio-img {
+  width: 35px;
+}
+
+.header-coin__image {
+  margin-left: 30px;
+}
+.wrapper-flex {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.wrapper-right {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  margin: 20px;
+}
+.trade-history__h1 {
+  margin-left: 30px;
+}

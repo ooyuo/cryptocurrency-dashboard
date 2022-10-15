@@ -13,3 +13,7 @@
 .smtitle-trade__history-data:nth-child(1) > .trade--history-type {
   color: red;
 }
+.trade__border {
+  border-bottom: 0.2px solid rgb(54, 54, 54);
+  padding-bottom: 10px;
+}

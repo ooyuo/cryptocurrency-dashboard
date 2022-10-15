@@ -41,7 +41,6 @@ function TradeHistory() {
   console.log(tradeHistory);
 
   const TradeWrapper = styled.div`
-    background: #ebe8e8fa;
     border-radius: 25px;
     padding: 30px;
   `;
@@ -58,11 +57,13 @@ function TradeHistory() {
         </div>
         {tradeHistory?.map((coin) => (
           <div className="smtitle-trade__history-data">
-            <span>{coin.time}</span>
-            <span>{coin.symbol}</span>
-            <span className="trade--history-type">{coin.type}</span>
-            <span>{coin.amount}</span>
-            <span>${coin.total}</span>
+            <span className="trade__border">{coin.time}</span>
+            <span className="trade__border">{coin.symbol}</span>
+            <span className="trade--history-type trade__border">
+              {coin.type}
+            </span>
+            <span className="trade__border">{coin.amount}</span>
+            <span className="trade__border">${coin.total}</span>
           </div>
         ))}
       </TradeWrapper>

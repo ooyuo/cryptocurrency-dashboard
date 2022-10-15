@@ -23,10 +23,9 @@ import Chart from "./Chart";
 import { boolean, number, string } from "yargs";
 import TradeHistory from "./TradeHistory";
 import Coins from "./Coins";
-import PieChart from "./PieChart";
 
 const Title = styled.h1`
-  font-size: 30px;
+  font-size: 48px;
   color: ${(props) => props.theme.textColor};
 `;
 
@@ -48,7 +47,8 @@ const Header = styled.header`
 `;
 
 const CoinWrapper = styled.div`
-  display: grid;
+  display: flex;
+  flex-direction: column;
 `;
 
 const TradeWrapper = styled.div`
@@ -80,7 +80,7 @@ const Tab = styled.span<{ isActive: boolean }>`
     display: block;
   }
   :hover {
-    border-bottom: 5px solid aquamarine;
+    border-bottom: 5px solid lightgreen;
   }
 `;
 const InsideContainer = styled.div`
@@ -88,7 +88,9 @@ const InsideContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   width: 300px;
-  background-color: #0000009c;
+  padding-bottom: 309.391px;
+  background-color: white;
+  border-radius: 25px;
   margin: 20px;
   width: 100%;
   padding: 10px;
@@ -201,25 +203,6 @@ interface ICoin {
   is_active: boolean;
   type: string;
 }
-const EachCoin = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-const PersonalInfo = styled.div`
-  width: 100%;
-`;
-
-const MyPortfolio = styled.div``;
-interface ICoin {
-  [x: string]: any;
-  id: string;
-  name: string;
-  symbol: string;
-  rank: number;
-  is_new: boolean;
-  is_active: boolean;
-  type: string;
-}
 
 function Coin({ symbol, name }: ICoin) {
   const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
@@ -236,76 +219,69 @@ function Coin({ symbol, name }: ICoin) {
   // );
 
   return (
-    <>
-      <CoinWrapper>
-        <div className="wrapper-sides">
-          <PersonalInfo>
-            <MyPortfolio>
-              <Header>
-                <Title>Dashboard</Title>
-              </Header>
-              <PieChart></PieChart>
-              <div className="grid-portfolio">
-                <img
-                  className="portfolio-img"
-                  src={require("../images/btc-gold.png")}
-                ></img>
-                <div className="portfolio-info">
-                  <div className="portfolio-info__name">Current balance</div>
-                  <div className="portfolio-info__price">0.0032231 BTC</div>
-                </div>
-              </div>
-
-              <div className="grid-portfolio">
-                <img
-                  className="portfolio-img"
-                  src={require("../images/bank.png")}
-                ></img>
-                <div className="portfolio-info">
-                  <div className="portfolio-info__name">Investment</div>
-                  <div className="portfolio-info__price">+$9,100,100.00</div>
-                </div>
-              </div>
-            </MyPortfolio>
-          </PersonalInfo>
-          <div className="wrapper-right">
-            <Coins />
-
-            <InsideContainer>
-              <EachCoin>
+    <Container>
+      <InsideContainer>
+        <Coins />
+        <Header>
+          <Link to={"/cryptocurrency-dashboard"}>
+            <span className="header-btn__back">{`< `}</span>
+          </Link>
+          <Title>
+            <Img
+              src={`https://coinicons-api.vercel.app/api/icon/${state.symbol.toLowerCase()}`}
+            />
+            {state.symbol}
+          </Title>
+        </Header>
+        {isLoading ? (
+          <Loader>Loading...</Loader>
+        ) : (
+          <>
+            <Wrapper>
+              <CoinWrapper>
+                <Chart coinId={coinId} />
                 <Header>
-                  {/* <Link to={"/cryptocurrency-dashboard"}>
-                <span className="header-btn__back">{`< `}</span>
-              </Link> */}
-                  <Title>
-                    <Img
-                      src={`https://coinicons-api.vercel.app/api/icon/${state.symbol.toLowerCase()}`}
-                      className="header-coin__image"
-                    />
-                    {state.symbol}
-                  </Title>
+                  <Title>Trade History</Title>
                 </Header>
-                {isLoading ? (
-                  <Loader>Loading...</Loader>
-                ) : (
-                  <>
-                    <div className="wrapper-flex">
-                      <Chart coinId={coinId} />
-                      <Header>
-                        <Title className="trade-history__h1">
-                          Trade History
-                        </Title>
-                      </Header>
-                      <TradeHistory />
-                    </div>
-                  </>
-                )}
-              </EachCoin>
-            </InsideContainer>
-          </div>
-        </div>
-      </CoinWrapper>
-    </>
+                <TradeHistory />
+              </CoinWrapper>
+              <TradeWrapper>
+                <Tabs className="tabs">
+                  <Tab isActive={buyMatch !== null}>
+                    <Link
+                      to={{
+                        pathname: `/cryptocurrency-dashboard/${coinId}/buy`,
+                        state: { name: state.name, symbol: state.symbol },
+                      }}
+                    >
+                      Buy
+                    </Link>
+                  </Tab>
+                  <Tab isActive={sellMatch !== null}>
+                    <Link
+                      to={{
+                        pathname: `/cryptocurrency-dashboard/${coinId}/sell`,
+                        state: { name: state.name, symbol: state.symbol },
+                      }}
+                    >
+                      Sell
+                    </Link>
+                  </Tab>
+                </Tabs>
+                <Switch>
+                  <Route path={`/cryptocurrency-dashboard/:coinId/buy`}>
+                    <Buy />
+                  </Route>
+                  <Route path={`/cryptocurrency-dashboard/:coinId/sell`}>
+                    <Sell />
+                  </Route>
+                </Switch>
+              </TradeWrapper>
+            </Wrapper>
+          </>
+        )}
+      </InsideContainer>
+    </Container>
   );
 }
 export default Coin;
