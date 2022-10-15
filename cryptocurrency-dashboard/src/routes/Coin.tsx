@@ -19,6 +19,7 @@ import {
   fetchCoinTickers,
 } from "../api";
 import "../styles/coin.css";
+import "../styles/responsive.css";
 import Chart from "./Chart";
 import { boolean, number, string } from "yargs";
 import TradeHistory from "./TradeHistory";
@@ -239,12 +240,14 @@ function Coin({ symbol, name }: ICoin) {
     <>
       <CoinWrapper>
         <div className="wrapper-sides">
-          <PersonalInfo>
-            <MyPortfolio>
+          <PersonalInfo className="wrapper-sides-personalInfo">
+            <MyPortfolio className="wrapper-sides-myportfolio">
               <Header>
-                <Title>Dashboard</Title>
+                <Title className="responsive-title">Dashboard</Title>
               </Header>
-              <PieChart></PieChart>
+              <div className="portfolio-pieChart">
+                <PieChart></PieChart>
+              </div>
               <div className="grid-portfolio">
                 <img
                   className="portfolio-img"

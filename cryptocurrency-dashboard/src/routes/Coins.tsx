@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { string } from "yargs";
 import { fetchCoins, fetchOhlcvToday } from "../api";
 import "../styles/coins.css";
+import "../styles/responsive.css";
 import PieChart from "./PieChart";
 
 const Container = styled.div`
@@ -183,11 +184,11 @@ function Coins() {
   // console.log(sortPercentChange);
   return (
     <body className="coins-body">
-      <Container>
+      <Container className="coins-body_container">
         <InsideContainer>
           <>
             <div className="grid-wrapper">
-              <CoinsList>
+              <CoinsList className="responsive-coinList">
                 {data?.slice(0, 100).map((coin) => (
                   <Coin key={coin.id}>
                     <Link
