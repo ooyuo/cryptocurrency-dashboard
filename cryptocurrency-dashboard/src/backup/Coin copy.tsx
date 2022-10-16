@@ -10,8 +10,8 @@ import {
 } from "react-router";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Buy from "./Buy";
-import Sell from "./Sell";
+import Buy from "../routes/Buy";
+import Sell from "../routes/Sell";
 import {
   fetchCoinHistory,
   fetchCoinInfo,
@@ -19,10 +19,10 @@ import {
   fetchCoinTickers,
 } from "../api";
 import "../styles/coin.css";
-import Chart from "./Chart";
+import Chart from "../routes/Chart";
 import { boolean, number, string } from "yargs";
-import TradeHistory from "./TradeHistory";
-import Coins from "./Coins";
+import TradeHistory from "../routes/TradeHistory";
+import Coins from "../routes/Coins";
 
 const Title = styled.h1`
   font-size: 48px;

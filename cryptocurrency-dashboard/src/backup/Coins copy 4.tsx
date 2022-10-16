@@ -7,7 +7,7 @@ import { string } from "yargs";
 import { fetchCoins, fetchOhlcvToday } from "../api";
 import "../styles/coins.css";
 import "../styles/responsive.css";
-import PieChart from "./PieChart";
+import PieChart from "../routes/PieChart";
 
 const Container = styled.div`
   padding: 0px 20px;

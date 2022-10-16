@@ -6,8 +6,7 @@ import styled from "styled-components";
 import { string } from "yargs";
 import { fetchCoins, fetchOhlcvToday } from "../api";
 import "../styles/coins.css";
-import "../styles/responsive.css";
-import PieChart from "./PieChart";
+import PieChart from "../routes/PieChart";
 
 const Container = styled.div`
   padding: 0px 20px;
@@ -18,11 +17,13 @@ const InsideContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 100%;
-  background-color: #0000009c;
+  width: 300px;
+  padding-bottom: 309.391px;
+  background-color: white;
   border-radius: 25px;
   margin: 20px;
   width: 100%;
+  padding: 10px;
 `;
 
 const Header = styled.header`
@@ -32,18 +33,10 @@ const Header = styled.header`
   align-items: center;
 `;
 
-const CoinsList = styled.ul`
-  margin: 20px;
-  height: 80vh;
-  width: 200px;
-  overflow-y: scroll;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-`;
+const CoinsList = styled.ul``;
 
 const Coin = styled.li`
-  background-color: #0000009c;
+  background-color: white;
   color: ${(props) => props.theme.textColor};
   border-radius: 15px;
   margin-bottom: 10px;
@@ -55,11 +48,6 @@ const Coin = styled.li`
     transition: color 0.2s ease-in;
   }
   &:hover {
-    a {
-      color: ${(props) => props.theme.accentColor};
-    }
-  }
-  &:focus-within {
     a {
       color: ${(props) => props.theme.accentColor};
     }
@@ -185,15 +173,14 @@ function Coins() {
         : 1,
   );
   console.log(data);
-
   // console.log(sortPercentChange);
   return (
     <body className="coins-body">
-      <Container className="coins-body_container">
+      <Container>
         <InsideContainer>
           <>
             <div className="grid-wrapper">
-              <CoinsList className="responsive-coinList">
+              <CoinsList>
                 {data?.slice(0, 100).map((coin) => (
                   <Coin key={coin.id}>
                     <Link
@@ -215,6 +202,68 @@ function Coins() {
                   </Coin>
                 ))}
               </CoinsList>
+              <PopularCoins>
+                <Header>
+                  <Title className="header-popular">Most Popular</Title>
+                </Header>
+                <CardsCoins>
+                  {sortPercentChange?.slice(0, 3).map((item) => (
+                    <>
+                      <div className="grid--cards">
+                        <Img
+                          src={`https://coinicons-api.vercel.app/api/icon/${item.symbol.toLowerCase()}`}
+                        />
+                        <div className="cards-info">
+                          <span className="cards-info__name">{item.name}</span>
+                          <span className="cards-info__symbol">
+                            {item.symbol}
+                          </span>
+                        </div>
+                        <div className="cards-price">
+                          $ {item.quotes.USD.price.toFixed(2)}
+                        </div>
+                        <div className="cards-price__change_7d">
+                          {item.quotes.USD.percent_change_7d}% this week
+                        </div>
+                      </div>
+                    </>
+                  ))}
+                </CardsCoins>
+              </PopularCoins>
+
+              <PersonalInfo>
+                <MyPortfolio>
+                  <Header>
+                    <Title>My Portfolio</Title>
+                  </Header>
+                  <PieChart></PieChart>
+                  <div className="grid-portfolio">
+                    <img
+                      className="portfolio-img"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABmJLR0QA/wD/AP+gvaeTAAABs0lEQVRIie3UsW9NcRQH8M+rpwhNRCIGHSSmKlEabGKxmJpIu0hEWCQGk8RoMTCSVEwEi0qQ+APEJEJanXQpBgOREDSqvKrh/JrePve9++7Lq8k3+eX+7v2d8/2e8zv3HP5jBbAKx/ASV7B1JchfYQHvMY/ZToh1YThD/hZnsQb9uIUa5nAdve1EPpXIX+MkVqOSCPcn2124Zymzq1rI7GgD8mx2d3Gwzi9PbGOewCH8bkDeKrJi97MH1fTcLa7jGQ6k1Q4+4R325InM4TNGUiQz6EnCX5uQdmN9sqkknxlMN4vkDR6k/WNMFER+QtRwQFz5AobqjboKSDqCfyJSLTZZhj5cw04RYHf6/kTUBG7jl6jtOE6XFRkT3f0QPwts14reu1lGZIPI4BLOt+gzi1NlarIY0I8G54N4kdajjEi17HU1Q030GnzJi64TmMThvINFkSOisTZjnyhwv5hhY8mmfp7dwHOM4jK+4wLOYRvO1ItsEXf6Ib0P4ltmz989NYCPab/D0vjZLn71ttAjxsbFEj6jqFUKzZZjCptwR3GfrMPx5FMKe0UXz4usmq0anqLvD6BfaEl2/jPNAAAAAElFTkSuQmCC"
+                    ></img>
+                    <div className="portfolio-info">
+                      <div className="portfolio-info__name">
+                        Current balance
+                      </div>
+                      <div className="portfolio-info__price">0.0032231 BTC</div>
+                    </div>
+                  </div>
+
+                  <div className="grid-portfolio">
+                    <img
+                      className="portfolio-img"
+                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABmJLR0QA/wD/AP+gvaeTAAABqUlEQVRIib3Vv0tWURgH8E8igSH49obRIIVSEITRYEFTizhFg0siJC5BQ2vQ9EJD0B/Qv9AkFU4ZNrg5RCgYtPQKBbqUoYiD+KOGc4LLfe97fxV+4XDvPec53+/zPOfc5+EEcKqETQMPcKYk5zrmqjhxDiv4XWEco5kk6S0Q+IAb8XsC7QKnHuEJTleJ4ADvoodXS+x7Gm0vJCd7MgwbWMAoZjFfxqs8pNPVg0WM4UcUGeqy9zluxfdVIU2ZSEdyPgps4DvOYg/v8S1lO4DbGMfj7nF0P/iXeJG3UfC+TziDXOTdrjQeClES/plpLOMjJv+HyDO0sIvDOLeAKSGdrX8V+SvwJpIeZNjs5hFkXeEkWiUEClEkMiPUodoCFKfrGvbrkpcVGYtCSWzjNY5wTygha8JNqyXyCpcy5kexibdCyr/iSl2Rm7iYmtuJpDCMQZ3VoJJIv1BakkhelkZc38LPuiJLOiOB60J9WxW6axuX64rc1dlHtvFZqFl3hIP/kkfSTaSJEaFkfMpYH47PjThE+2aGbSb5sWo9vXKP/4X70au6aEeek8Uf+SxnixlXBHUAAAAASUVORK5CYII="
+                    ></img>
+                    <div className="portfolio-info">
+                      <div className="portfolio-info__name">Investment</div>
+                      <div className="portfolio-info__price">
+                        +$9,100,100.00
+                      </div>
+                    </div>
+                  </div>
+                </MyPortfolio>
+              </PersonalInfo>
             </div>
           </>
         </InsideContainer>
