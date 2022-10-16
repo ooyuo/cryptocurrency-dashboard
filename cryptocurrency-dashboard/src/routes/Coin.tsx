@@ -223,10 +223,16 @@ interface ICoin {
 }
 
 function Coin({ symbol, name }: ICoin) {
-  const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
+  let { coinId } = useParams<RouteParams>();
+  let { state } = useLocation<RouteState>();
+  if (coinId === undefined) {
+    coinId = "btc-bitcoin";
+  }
+  if (state === undefined) {
+    state = { name: "btc-bitcoin", symbol: "BTC" };
+  }
 
-  const { coinId } = useParams<RouteParams>();
-  const { state } = useLocation<RouteState>();
+  const { isLoading, data } = useQuery<ICoin[]>("allCoins", fetchCoins);
 
   const buyMatch = useRouteMatch("/cryptocurrency-dashboard/:coinId/buy");
   const sellMatch = useRouteMatch("/cryptocurrency-dashboard/:coinId/sell");
@@ -243,7 +249,7 @@ function Coin({ symbol, name }: ICoin) {
           <PersonalInfo className="wrapper-sides-personalInfo">
             <MyPortfolio className="wrapper-sides-myportfolio">
               <Header>
-                <Title className="responsive-title">Dashboard</Title>
+                <Title className="responsive-title">DASHBOARD</Title>
               </Header>
               <div className="portfolio-pieChart">
                 <PieChart></PieChart>
@@ -296,7 +302,7 @@ function Coin({ symbol, name }: ICoin) {
                       <Chart coinId={coinId} />
                       <Header>
                         <Title className="trade-history__h1">
-                          Trade History
+                          TRADE HISTORY
                         </Title>
                       </Header>
                       <TradeHistory />

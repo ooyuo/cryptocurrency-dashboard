@@ -18,7 +18,15 @@ function Router() {
           />
         </Route>
         <Route path="/cryptocurrency-dashboard/">
-          <Coins />
+          <Coin
+            id={""}
+            name={""}
+            symbol={""}
+            rank={0}
+            is_new={false}
+            is_active={false}
+            type={""}
+          />
         </Route>
       </Switch>
     </BrowserRouter>

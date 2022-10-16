@@ -59,11 +59,6 @@ const Coin = styled.li`
       color: ${(props) => props.theme.accentColor};
     }
   }
-  &:focus-within {
-    a {
-      color: ${(props) => props.theme.accentColor};
-    }
-  }
 `;
 
 const PopularCoins = styled.div``;
